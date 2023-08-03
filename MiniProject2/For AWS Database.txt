@@ -1,0 +1,11 @@
+//Inserting Subjects
+INSERT INTO `subjects` (`Subject_Id`, `Subject`, `Semester`, `Course`) VALUES (NULL, 'Network Technology', '1', 'MCA'), (NULL, 'Object Oriented Software Engineering', '1', 'MCA');
+
+//Add foreign key to table questions from table subjects
+ALTER TABLE questions
+ADD Sub_Id INTEGER(5),
+ADD CONSTRAINT FOREIGN KEY (Sub_Id) REFERENCES subjects(Subject_Id);
+
+
+SELECT `Q_Id`, `Question`, `Semester`, `Year`, `S_W`, `Course`, `Sub_Id` FROM `questions` 
+WHERE 'Year'=2017 and 'Sub_Id'=1 and 'Course'=MCA;
